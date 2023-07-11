@@ -64,13 +64,17 @@
 
 ## Modelo Lógico (Relacional)
 
+![Diagrama](~/../assets/Diagrama.png)
 
-
+Veja também [Diagrama pdf](~/../assets/DocsDB.pdf)
+>[!NOTE]
+>
+> This is a note
 ### Chaves Primárias e Chaves Estrangeiras
 
 - Chaves Primárias:
-    - Estudante: Matrícula
-    - Professor: Matrícula
+    - Estudante: Matricula
+    - Professor: Matricula
     - Disciplina: ID
     - Turma: ID
     - Departamento: ID
@@ -80,8 +84,8 @@
 - Chaves Estrangeiras:
     - Disciplina: ID_Departamento references Departamento.ID
     - Turma: ID_Disciplina references Disciplina.ID
-    - Turma: Matrícula_Professor references Professor.Matrícula
-    - Avaliação: ID_Estudante references Estudante.Matrícula
+    - Turma: Matricula_Professor references Professor.Matricula
+    - Avaliação: Matricula references Estudante.Matricula
     - Avaliação: ID_Turma references Turma.ID
-    - Denúncia: Matrícula_Estudante references Estudante.Matrícula
+    - Denúncia: Matricula_Estudante references Estudante.Matricula
     - Denúncia: ID_Avaliação references Avaliação.ID

@@ -67,9 +67,6 @@
 ![Diagrama](~/../assets/Diagrama.png)
 
 Veja também [Diagrama pdf](~/../assets/DocsDB.pdf)
->[!NOTE]
->
-> This is a note
 ### Chaves Primárias e Chaves Estrangeiras
 
 - Chaves Primárias:

@@ -1,0 +1,22 @@
+{
+  "name": "bd-2023.1",
+  "version": "1.0.0",
+  "description": "## **Descrição** - Para auxiliar os estudantes na escolha de disciplinas, você ficou encarregado de elaborar um sistema onde estudantes podem avaliar professores de disciplinas.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "workspaces": [
+    "backend/*",
+    "frontend/*"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@nestjs/mapped-types": "*",
+    "@nestjs/passport": "^10.0.0",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0"
+  }
+}

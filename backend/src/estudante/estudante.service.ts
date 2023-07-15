@@ -2,50 +2,41 @@ import { Injectable } from '@nestjs/common';
 import { Knex } from 'knex';
 import { CreateEstudanteDto } from './dto/create-estudante.dto';
 import { UpdateEstudanteDto } from './dto/update-estudante.dto';
-import { Estudante } from './entities/estudante.entity';
 
 @Injectable()
 export class EstudanteService {
   constructor(private readonly knex: Knex) {}
 
-  async create(createEstudanteDto: CreateEstudanteDto): Promise<Estudante> {
-    const [estudante] = await this.knex<Estudante>('Estudante')
-      .insert(createEstudanteDto)
-      .returning('*');
-    return estudante as Estudante;
+  async create(createEstudanteDto: CreateEstudanteDto) {
+    const query = `
+      INSERT INTO estudante (Nome, Email, Curso, Senha, Tipo)
+      VALUES (?, ?, ?, ?, ?)
+    `;
+    const values = [
+      createEstudanteDto.nome,
+      createEstudanteDto.email,
+      createEstudanteDto.curso,
+      createEstudanteDto.senha,
+      createEstudanteDto.tipo,
+    ];
+
+    await this.knex.raw(query, values);
+    return 'Estudante created successfully';
   }
 
-  async findAll(): Promise<Estudante[]> {
-    const estudantes = await this.knex<Estudante>('Estudante').select('*');
-    return estudantes;
+  findAll() {
+    return `This action returns all estudante`;
   }
 
-  async findOne(id: number): Promise<Estudante> {
-    const [estudante] = await this.knex<Estudante>('Estudante')
-      .select('*')
-      .where({ ID: id });
-    return estudante as Estudante;
+  findOne(id: number) {
+    return `This action returns a #${id} estudante`;
   }
 
-  async update(
-    id: number,
-    updateEstudanteDto: UpdateEstudanteDto,
-  ): Promise<Estudante> {
-    const [estudante] = await this.knex<Estudante>('Estudante')
-      .update(updateEstudanteDto)
-      .where({ ID: id })
-      .returning('*');
-    return estudante as Estudante;
+  update(id: number, updateEstudanteDto: UpdateEstudanteDto) {
+    return `This action updates a #${id} estudante`;
   }
 
-  async remove(id: number): Promise<void> {
-    await this.knex<Estudante>('Estudante').where({ ID: id }).del();
-  }
-
-  async findByEmail(email: string): Promise<Estudante> {
-    const [estudante] = await this.knex<Estudante>('Estudante')
-      .select('*')
-      .where({ Email: email });
-    return estudante as Estudante;
+  remove(id: number) {
+    return `This action removes a #${id} estudante`;
   }
 }

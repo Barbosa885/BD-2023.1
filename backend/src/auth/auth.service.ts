@@ -1,29 +1,22 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
-import { JwtService } from '@nestjs/jwt';
-import { EstudanteService } from '../estudante/estudante.service';
-import { Estudante } from '../estudante/entities/estudante.entity';
+import { CreateAuthDto } from './dto/create-auth.dto';
+import { UpdateAuthDto } from './dto/update-auth.dto';
 
 @Injectable()
 export class AuthService {
-  constructor(
-    private readonly jwtService: JwtService,
-    private readonly estudanteService: EstudanteService,
-  ) {}
-
-  async validateUser(email: string, senha: string): Promise<Estudante> {
-    const estudante = await this.estudanteService.findByEmail(email);
-
-    if (!estudante || estudante.Senha !== senha) {
-      throw new UnauthorizedException('Credenciais inválidas');
-    }
-
-    return estudante;
+  remove(arg0: number) {
+    throw new Error('Method not implemented.');
   }
-
-  async login(estudante: Estudante) {
-    const payload = { email: estudante.Email, sub: estudante.ID };
-    return {
-      access_token: this.jwtService.sign(payload),
-    };
+  update(arg0: number, updateAuthDto: UpdateAuthDto) {
+    throw new Error('Method not implemented.');
+  }
+  findOne(arg0: number) {
+    throw new Error('Method not implemented.');
+  }
+  findAll() {
+    throw new Error('Method not implemented.');
+  }
+  create(createAuthDto: CreateAuthDto) {
+    throw new Error('Method not implemented.');
   }
 }

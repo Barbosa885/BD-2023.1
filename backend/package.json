@@ -29,6 +29,7 @@
     "fs": "^0.0.1-security",
     "knex": "^2.5.0",
     "nest-knexjs": "^0.0.17",
+    "nestjs-knex": "^2.0.0",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "pg": "^8.11.1",

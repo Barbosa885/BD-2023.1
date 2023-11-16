@@ -1,5 +1,5 @@
 import { View, Text, TouchableOpacity } from 'react-native';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AntDesign } from '@expo/vector-icons'; 
 
 import Logo from '../../assets/logo.svg';
@@ -9,19 +9,46 @@ import ButtonComponent from '../../components/ButtonComponent';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../../Types';
 
+import api from '../../api';
+
 type CadastroScreenProps = NativeStackScreenProps<RootStackParamList, "Cadastro">;
 
 export default function Cadastro({ navigation }: CadastroScreenProps){
+  const [nome, setNome] = useState('')
   const [registration, setRegistration] = useState('')
   const [email, setEmail] = useState('')
   const [course, setCourse] = useState('')
   const [password, setPassword] = useState('')
 
-  function handleSubmit(){
-  // alert('Cadastro realizado com sucesso!')
+  const handleSubmit = async () => {
+    try {
+      const response = await api.post('/estudante', {
+        nome,
+        matricula: registration,
+        email,
+        curso: course,
+        senha: password,
+        admin: false
+      })
+      console.log(response.data)
+      navigation.navigate("Perfil")
+    } catch (error) {
+      console.log(error)
+    }
   }
 
+  useEffect(() => {
+    handleSubmit()
+  }, [])
+
   const inputFields = [
+  {
+    label: "Nome",
+    onChangeText: setNome,
+    value: nome,
+    placeholder: "Digite seu nome",
+    keyboardType: "default",
+  },
   {
     label: "Matrícula",
     onChangeText: setRegistration,
@@ -34,7 +61,7 @@ export default function Cadastro({ navigation }: CadastroScreenProps){
     onChangeText: setEmail,
     value: email,
     placeholder: `${registration}@aluno.unb.br`,
-    keyboardType: "default",
+    keyboardType: "email-address",
   },
   {
     label: "Curso",
@@ -88,7 +115,7 @@ export default function Cadastro({ navigation }: CadastroScreenProps){
           <View className="items-center">
               <ButtonComponent 
                 text="Cadastrar"
-                onPress={handleSubmit()}
+                onPress={handleSubmit}
               />
           </View>
       </View>

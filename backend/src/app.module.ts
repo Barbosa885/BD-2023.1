@@ -2,14 +2,7 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { KnexModule } from 'nest-knexjs';
-import { EstudanteModule } from './estudante/estudante.module';
-import { ProfessorModule } from './professor/professor.module';
-import { DisciplinaModule } from './disciplina/disciplina.module';
-import { TurmaModule } from './turma/turma.module';
-import { DespartamentoModule } from './despartamento/despartamento.module';
-import { AvaliacaoModule } from './avaliacao/avaliacao.module';
-import { DenunciaModule } from './denuncia/denuncia.module';
-import { AuthModule } from './auth/auth.module';
+import { EstudantesModule } from './estudantes/estudantes.module';
 
 @Module({
   imports: [
@@ -23,18 +16,11 @@ import { AuthModule } from './auth/auth.module';
           user: 'postgres',
           port: 5432,
           password: 'postgres',
-          database: 'barbosadb',
+          database: 'uniavalia',
         },
       },
     }),
-    EstudanteModule,
-    ProfessorModule,
-    DisciplinaModule,
-    TurmaModule,
-    DespartamentoModule,
-    AvaliacaoModule,
-    DenunciaModule,
-    AuthModule,
+    EstudantesModule,
   ],
   controllers: [AppController],
   providers: [AppService],

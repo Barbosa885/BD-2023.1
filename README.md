@@ -15,43 +15,46 @@
 
 ### Entidades
 
-- **Estudante**
-    - Matrícula
-    - Nome
-    - Email
-    - Curso
-    - Senha
+- **estudante**
+    - matricula
+    - nome
+    - email
+    - curso
+    - senha
+    - admin
+    - foto
 
 - **Professor**
-    - Matrícula
-    - Nome
-    - Departamento
+    - matricula
+    - nome
+    - departamento
 
 - **Disciplina**
-    - ID
-    - Nome
-    - ID_Departamento
+    - id
+    - nome
+    - id_departamento
 
 - **Turma**
-    - ID
-    - ID_Disciplina
-    - ID_Professor
+    - id
+    - id_disciplina
+    - id_professor
 
 - **Departamento**
-    - ID
-    - Nome
+    - id
+    - nome
 
 - **Avaliação**
-    - ID
-    - ID_Estudante
-    - ID_Turma
-    - Nota
+    - id
+    - id_estudante
+    - id_turma
+    - comentario
+    - nota
 
 - **Denúncia**
-    - ID
-    - ID_Estudante
-    - ID_Avaliação
-    - Motivo
+    - id
+    - id_estudante
+    - id_avaliacao
+    - motivo
 
 ### Regras de Negócio
 

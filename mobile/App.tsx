@@ -6,7 +6,7 @@ import { StatusBar } from 'expo-status-bar';
 
 import Cadastro from './src/screens/auth/Cadastro';
 import Login from './src/screens/auth/Login';
-import Onboard from './src/screens/Onboard';
+import Perfil from './src/screens/Perfil';
 
 import { 
   useFonts, 
@@ -31,7 +31,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Onboard">
+      <Stack.Navigator initialRouteName="Login">
         <Stack.Screen 
           name="Cadastro"
           component={Cadastro}
@@ -43,8 +43,8 @@ export default function App() {
           options={{ headerShown: false }}
         />
         <Stack.Screen 
-          name="Onboard"
-          component={Onboard}
+          name="Perfil" 
+          component={Perfil}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

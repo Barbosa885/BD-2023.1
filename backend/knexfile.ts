@@ -9,9 +9,15 @@ const config: { [key: string]: Knex.Config } = {
       host: 'localhost',
       user: 'postgres',
       password: 'postgres',
-      database: 'barbosadb',
+      database: 'uniavalia',
+    },
+    migrations: {
+      directory: './src/database/migrations',
+    },
+    seeds: {
+      directory: './src/database/seeds',
     },
   },
 };
 
-module.exports = config;
+export = config;

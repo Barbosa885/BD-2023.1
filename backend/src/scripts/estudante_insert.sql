@@ -1,0 +1,3 @@
+INSERT INTO "estudante" (nome,email,matricula,curso,senha,admin) VALUES ('João','joao@example.com','123456789','Engenharia Civil','123456','false');
+INSERT INTO "estudante" (nome,email,matricula,curso,senha,admin) VALUES ('Maria','maria@example.com','987654321','Administração','abcdef','false');
+INSERT INTO "estudante" (nome,email,matricula,curso,senha,admin) VALUES ('Pedro','pedro@example.com','456789123','Medicina','xyz123','true');

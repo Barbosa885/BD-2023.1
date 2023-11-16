@@ -1,0 +1,4 @@
+nome,email,matricula,curso,senha,admin
+João,joao@example.com,123456789,Engenharia Civil,123456,false
+Maria,maria@example.com,987654321,Administração,abcdef,false
+Pedro,pedro@example.com,456789123,Medicina,xyz123,true

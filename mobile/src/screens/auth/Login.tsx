@@ -1,4 +1,3 @@
-
 import { View, Text, TouchableOpacity } from 'react-native';
 import React, { useState } from 'react';
 
@@ -10,15 +9,25 @@ import { AntDesign } from '@expo/vector-icons';
 
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../../Types';
+import api from '../../api';
 
 type LoginScreenProps = NativeStackScreenProps<RootStackParamList, "Login">;
 
 export default function Login({navigation}: LoginScreenProps){
   const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [senha, setSenha] = useState('')
 
-  function handleSubmit(){
-  // alert('Cadastro realizado com sucesso!')
+  const handleSubmit = async () => {
+    try {
+      const response = await api.post('/estudante/login', {
+        email,
+        senha
+      })
+      console.log(response.data)
+      navigation.navigate("Perfil")
+    } catch (error) {
+      console.log(error)
+    } 
   }
 
   const inputFields = [
@@ -27,19 +36,17 @@ export default function Login({navigation}: LoginScreenProps){
     onChangeText: setEmail,
     value: email,
     placeholder: `Matrícula@aluno.unb.br`,
-    keyboardType: "default",
+    keyboardType: "email-address",
   },
   {
     label: "Senha",
-    onChangeText: setPassword,
-    value: password,
+    onChangeText: setSenha,
+    value: senha,
     placeholder: "Digite sua senha",
-    keyboardType: "default",
+    keyboardType: "password",
     secureTextEntry: true,
   },
 ];
-
-
 
   return (
       <View className="flex-1 justify-center p-8 bg-sky-100">

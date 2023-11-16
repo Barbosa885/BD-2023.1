@@ -6,6 +6,7 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
+    "resource": "nest g resource",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
@@ -26,6 +27,9 @@
     "@nestjs/mapped-types": "*",
     "@nestjs/passport": "^10.0.0",
     "@nestjs/platform-express": "^10.0.0",
+    "bcrypt": "^5.1.0",
+    "bcryptjs": "^2.4.3",
+    "csv-parser": "^3.0.0",
     "fs": "^0.0.1-security",
     "knex": "^2.5.0",
     "nest-knexjs": "^0.0.17",
